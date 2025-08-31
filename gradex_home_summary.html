@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradex - Premier Coaching Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .highlight-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .locations-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .location-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .location-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .location-desc {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(102, 126, 234, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .boards-highlight {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .boards-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .boards-list {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-title {
+                font-size: 2.5rem;
+            }
+            
+            .highlight-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-section, .locations-section {
+                padding: 25px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="logo-title">GRADEX</h1>
+            <p class="tagline">Empowering Excellence in Education</p>
+            <p style="font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto;">
+                India's trusted coaching institute providing comprehensive academic support for CBSE and Bihar Board students through innovative online and offline learning experiences.
+            </p>
+            
+            <div class="boards-highlight">
+                <h3 class="boards-title">Specialized Coaching For</h3>
+                <p class="boards-list">CBSE Classes 5-12 | Bihar Board Classes 9-12</p>
+            </div>
+            
+            <div class="highlight-stats">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Branches</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Learning Modes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Grade Levels</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Expert Faculty</h3>
+                <p class="feature-description">
+                    Highly qualified and experienced teachers specializing in CBSE and Bihar Board curricula, ensuring personalized attention and academic excellence for every student.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3 class="feature-title">Hybrid Learning</h3>
+                <p class="feature-description">
+                    Flexible online and offline classes designed to suit individual learning preferences, with interactive digital tools and traditional classroom experiences.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">Comprehensive Materials</h3>
+                <p class="feature-description">
+                    Specially curated study materials, practice papers, and test series aligned with latest syllabus patterns to ensure thorough exam preparation.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Progress Tracking</h3>
+                <p class="feature-description">
+                    Regular assessments and detailed performance analysis to monitor student progress and identify areas for improvement with personalized feedback.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Locations Section -->
+        <div class="locations-section">
+            <h2 class="section-title">Our Branches</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3 class="location-name">Kota</h3>
+                    <p class="location-desc">Premier coaching hub with intensive academic programs</p>
+                </div>
+                <div class="location-card">
+                    <h3 class="location-name">New Delhi</h3>
+                    <p class="location-desc">Capital city center for comprehensive education</p>
+                </div>
+                <div class="location-card">
+                    <h3 class="location-name">Lucknow</h3>
+                    <p class="location-desc">Excellence in UP board and competitive exam prep</p>
+                </div>
+                <div class="location-card">
+                    <h3 class="location-name">Muzaffarpur</h3>
+                    <p class="location-desc">Specialized Bihar Board coaching excellence</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <a href="#" class="cta-button">Enroll Now</a>
+            <a href="#" class="cta-button">Contact Us</a>
+        </div>
+    </div>
+</body>
+</html>
